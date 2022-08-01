@@ -1,57 +1,56 @@
-// package co.edu.utp.misiontic2022.reto1.p45;
-
 public class BecaUniversitaria {
   private int tiempo;
   private double monto;
   private double interes;
 
-  public BecaUniversitaria(int tiempo, double monto, double interes) {
-    this.tiempo = tiempo;
-    this.monto = monto;
-    this.interes = interes;
+  public BecaUniversitaria() {
+    tiempo = 0;
+    monto = 0;
+    interes = 0;
   }
 
-  public BecaUniversitaria() {
+  public BecaUniversitaria(int pTiempo, double pCapital, double pInteres) {
+    this.tiempo = pTiempo;
+    this.monto = pCapital;
+    this.interes = pInteres;
   }
 
   public double calcularInteresSimple() {
     double interesSimple = monto * (interes / 100) * tiempo;
-    return interesSimple;
+    return Math.round(interesSimple);
   }
 
   public double calcularInteresCompuesto() {
-    double interesCompuesto = monto * (Math.pow(1 + (interes / 100), tiempo) - 1);
-    return interesCompuesto;
+    double interesCompuesto = monto * (Math.pow(1 + interes / 100, tiempo) - 1);
+    return Math.round(interesCompuesto);
   }
 
   public String compararInversion(int pTiempo, double pMonto, double pInteres) {
+
     this.tiempo = pTiempo;
     this.monto = pMonto;
     this.interes = pInteres;
 
-    double inversion = calcularInteresCompuesto() - calcularInteresSimple();
-    String mensaje = "";
+    double diferencia = calcularInteresCompuesto() - calcularInteresSimple();
 
-    if (inversion > 0) {
-      mensaje = "La diferencia entre la proyección de interés compuesto e interés simple es: $" + Math.round(inversion);
+    if (diferencia != 0) {
+      return "La diferencia entre la proyección de interés compuesto e interés simple es: $" + diferencia;
     } else {
-      mensaje = "No se obtuvo diferencia entre las proyecciones, revisar los parámetros de entrada.";
+      return "No se obtuvo diferencia entre las proyecciones, revisar los parámetros de entrada.";
     }
 
-    return mensaje;
   }
 
   public String compararInversion() {
-    double diferencia = calcularInteresCompuesto() - calcularInteresSimple();
-    String mensaje = "";
+    double diferencia = 0;
+
+    diferencia = calcularInteresCompuesto() - calcularInteresSimple();
 
     if (diferencia > 0) {
-      mensaje = "La diferencia entre la proyección de interés compuesto e interés simple es: $"
-          + Math.round(diferencia);
+      return "La diferencia entre la proyección de interés compuesto e interés simple es: $" + diferencia;
     } else {
-      mensaje = "No se obtuvo diferencia entre las proyecciones, revisar los parámetros de entrada.";
+      return "No se obtuvo diferencia entre las proyecciones, revisar los parámetros de entrada.";
     }
-
-    return mensaje;
   }
+
 }

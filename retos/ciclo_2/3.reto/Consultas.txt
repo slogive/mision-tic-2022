@@ -1,0 +1,255 @@
+Consulta 1:
+
+SELECT ID_MATERIALCONSTRUCCION AS ID, NOMBRE_MATERIAL  AS NOMBRE, PRECIO_UNIDAD  AS PRECIO
+FROM MATERIALCONSTRUCCION
+WHERE IMPORTADO = 'Si'
+ORDER BY NOMBRE_MATERIAL;
+
+Resultado1:
+
+ID  NOMBRE        PRECIO
+--  ------------  ------
+6   Acero         1519
+19  Acrilicos     2156
+8   Aluminio      1187
+14  Bambu         1986
+3   Cemento       1278
+1   Granito       1130
+4   Ladrillo      1011
+13  Linoleo       2227
+16  Poliestireno  2163
+17  Silicona      1193
+
+**************************************************************
+
+Consulta 2:
+
+SELECT P.ID_PROYECTO AS ID, P.CONSTRUCTORA, P.CIUDAD, P.CLASIFICACION, T.ESTRATO, L.NOMBRE||' '||L.PRIMER_APELLIDO||' '||L.SEGUNDO_APELLIDO AS LIDER
+FROM PROYECTO P 
+JOIN TIPO T ON (P.ID_TIPO = T.ID_TIPO)
+JOIN LIDER L ON (P.ID_LIDER = L.ID_LIDER)
+WHERE P.BANCO_VINCULADO = 'Conavi'
+ORDER BY FECHA_INICIO DESC, CIUDAD, CONSTRUCTORA;
+
+Resultado2:
+
+ID   Constructora           Ciudad              Clasificacion   Estrato  LIDER
+---  ---------------------  ------------------  --------------  -------  -------------------------
+8    Hermanos Gallego       Armenia             Condominio      6        Carla Rodriguez Andrade
+96   Pegaso                 Armenia             Casa            3        Nadia Pelaez Galvis
+46   Edificios y Edificios  Barranquilla        Casa            2        Carla Gomez Parra
+91   Hermanos Gallego       Barranquilla        Apartaestudio   6        Homero Caceres Rojas
+321  Arquitectura S.A.      Bucaramanga         Casa Campestre  2        Nadia Lopez Ortiz
+202  Hermanos Gallego       Bucaramanga         Apartaestudio   6        Luis Barrera Parra
+308  Ingenieros Ltda.       Bucaramanga         Apartaestudio   3        Bart Rivera Ortiz
+70   Arquitectura S.A.      Cartagena           Casa            5        Homero Falcon Godoy
+252  Edificios y Edificios  Cartagena           Apartaestudio   6        Beatriz Jimenez Ardila
+253  Hermanos Gallego       Cartago             Casa            6        Homero Perez Parra
+75   Pegaso                 Ibague              Apartamento     5        Jorge Caceres Ortiz
+368  Arquitectura S.A.      Neiva               Apartaestudio   6        Carla Gomez Parra
+378  Arquitectura S.A.      Neiva               Condominio      5        Libia Pelaez Rojas
+163  Arquitectura S.A.      Quibdo              Apartamento     5        Libia Pelaez Rojas
+82   Hermanos Gallego       Quibdo              Casa            6        Homero Caceres Rojas
+190  Hermanos Gallego       Quibdo              Casa            3        Homero Falcon Godoy
+350  Ingenieros Ltda.       Quibdo              Casa Campestre  5        Juana Perez Galvis
+116  Pegaso                 Quibdo              Condominio      5        Maradona Jimenez Godoy
+113  Ingenieros Ltda.       Santa Marta         Apartaestudio   2        Juana Falcon Rojas
+130  Ingenieros Ltda.       Bogota              Casa Campestre  6        Paul Escobar Ortiz
+30   Arquitectura S.A.      Cartagena           Casa            2        Jorge Gomez Velez
+112  Ingenieros Ltda.       Cartago             Apartamento     6        Juana Rodriguez Velez
+275  Arquitectura S.A.      Ibague              Apartamento     2        Juana Perez Galvis
+1    Arquitectura S.A.      Manizales           Casa Campestre  5        Libia Pelaez Rojas
+259  Arquitectura S.A.      Monteria            Apartamento     3        Homero Falcon Godoy
+301  Arquitectura S.A.      Monteria            Apartaestudio   5        Diana Arteaga Rojas
+261  Ingenieros Ltda.       Monteria            Casa Campestre  6        Monica Rivera Hernandez
+327  Edificios y Edificios  Pereira             Condominio      6        Diana Rivera Arias
+175  Ingenieros Ltda.       Pereira             Apartaestudio   3        Moe Falcon Cardenas
+58   Pegaso                 Pereira             Casa            2        Jorge Caceres Ortiz
+333  Ingenieros Ltda.       Quibdo              Apartaestudio   5        Paul Escobar Ortiz
+88   Edificios y Edificios  Santa Marta         Casa            6        Jorge Gomez Federer
+337  Edificios y Edificios  Sta. Rosa de Cabal  Condominio      6        Juana Ocampo Velez
+285  Ingenieros Ltda.       Sta. Rosa de Cabal  Apartamento     5        Homero Caceres Rojas
+69   Edificios y Edificios  Armenia             Condominio      3        Moe Falcon Cardenas
+150  Arquitectura S.A.      Barranquilla        Casa            6        Carlos Rodriguez Palacio
+246  Hermanos Gallego       Bucaramanga         Condominio      3        Juana Rodriguez Velez
+40   Pegaso                 Bucaramanga         Casa            5        Nadia Pelaez Galvis
+353  Ingenieros Ltda.       Cartagena           Apartaestudio   6        Maradona Jimenez Godoy
+21   Edificios y Edificios  Ibague              Casa            2        Homero Perez Parra
+356  Edificios y Edificios  Manizales           Condominio      6        Jack Escobar Cuadrado
+213  Pegaso                 Manizales           Apartaestudio   6        Nadia Lopez Ortiz
+119  Pegaso                 Neiva               Casa Campestre  6        Moe Falcon Cardenas
+94   Edificios y Edificios  Pereira             Casa            3        Jorge Gomez Velez
+267  Ingenieros Ltda.       Pereira             Casa            6        Carlos Camargo Arias
+17   Arquitectura S.A.      Quibdo              Apartaestudio   3        Carlos Jimenez Federer
+339  Pegaso                 Quibdo              Apartamento     6        Carlos Jimenez Federer
+298  Pegaso                 Santa Marta         Casa Campestre  5        Maradona Arteaga Figueroa
+284  Hermanos Gallego       Sta. Rosa de Cabal  Casa            5        Maradona Jimenez Godoy
+31   Ingenieros Ltda.       Sta. Rosa de Cabal  Condominio      2        Jorge Gomez Federer
+347  Pegaso                 Barranquilla        Condominio      3        Carlos Linares Figueroa
+398  Hermanos Gallego       Bucaramanga         Apartaestudio   2        Bart Linares Federer
+330  Ingenieros Ltda.       Bucaramanga         Apartamento     3        Luis Barrera Parra
+173  Arquitectura S.A.      Cartago             Condominio      6        Bart Linares Federer
+41   Ingenieros Ltda.       Manizales           Casa Campestre  3        Libia Perez Hernandez
+227  Arquitectura S.A.      Monteria            Apartaestudio   6        Nadia Ocampo Godoy
+374  Edificios y Edificios  Monteria            Apartamento     3        Jorge Caceres Ortiz
+108  Pegaso                 Monteria            Apartaestudio   3        Beatriz Jimenez Ardila
+105  Edificios y Edificios  Neiva               Casa            6        Homero Falcon Godoy
+249  Edificios y Edificios  Pereira             Apartaestudio   6        Homero Caceres Rojas
+218  Arquitectura S.A.      Santa Marta         Condominio      6        Carla Linares Velez
+358  Arquitectura S.A.      Santa Marta         Casa Campestre  6        Carlos Rodriguez Palacio
+241  Ingenieros Ltda.       Sta. Rosa de Cabal  Condominio      5        Carlos Linares Figueroa
+
+**************************************************************
+Consulta 3:
+
+SELECT CIUDAD, CLASIFICACION, COUNT(*) TOTAL, MIN(FECHA_INICIO) VIEJO, MAX(FECHA_INICIO) RECIENTE
+FROM PROYECTO P 
+WHERE CLASIFICACION NOT IN ('Casa Campestre', 'Condominio')
+GROUP BY CIUDAD , CLASIFICACION
+ORDER BY CIUDAD , CLASIFICACION;
+
+Resultado3:
+
+Ciudad              Clasificacion  TOTAL  VIEJO       RECIENTE
+------------------  -------------  -----  ----------  ----------
+Armenia             Apartaestudio  5      2019-09-09  2020-06-15
+Armenia             Apartamento    5      2019-09-09  2021-04-04
+Armenia             Casa           7      2020-06-15  2021-04-04
+Barranquilla        Apartaestudio  6      2019-09-09  2021-04-04
+Barranquilla        Apartamento    4      2020-06-15  2021-04-04
+Barranquilla        Casa           8      2019-09-09  2021-04-04
+Bogota              Apartaestudio  2      2019-09-09  2021-04-04
+Bogota              Apartamento    5      2019-09-09  2021-04-04
+Bogota              Casa           6      2019-09-09  2020-12-07
+Bucaramanga         Apartaestudio  8      2019-09-09  2021-04-04
+Bucaramanga         Apartamento    5      2019-09-09  2020-12-07
+Bucaramanga         Casa           7      2019-09-09  2021-04-04
+Cartagena           Apartaestudio  7      2019-09-09  2021-04-04
+Cartagena           Apartamento    6      2019-09-09  2020-12-07
+Cartagena           Casa           8      2019-09-09  2021-04-04
+Cartago             Apartaestudio  2      2019-09-09  2020-06-15
+Cartago             Apartamento    3      2020-06-15  2020-12-07
+Cartago             Casa           7      2019-09-09  2021-04-04
+Ibague              Apartaestudio  3      2019-09-09  2020-12-07
+Ibague              Apartamento    5      2020-12-07  2021-04-04
+Ibague              Casa           8      2019-09-09  2021-04-04
+Manizales           Apartaestudio  5      2019-09-09  2020-06-15
+Manizales           Apartamento    2      2020-06-15  2021-04-04
+Manizales           Casa           5      2019-09-09  2021-04-04
+Monteria            Apartaestudio  12     2019-09-09  2021-04-04
+Monteria            Apartamento    7      2019-09-09  2021-04-04
+Monteria            Casa           3      2020-06-15  2020-12-07
+Neiva               Apartaestudio  3      2020-12-07  2021-04-04
+Neiva               Apartamento    3      2020-06-15  2021-04-04
+Neiva               Casa           6      2019-09-09  2021-04-04
+Pereira             Apartaestudio  6      2019-09-09  2021-04-04
+Pereira             Apartamento    2      2020-06-15  2021-04-04
+Pereira             Casa           10     2019-09-09  2020-12-07
+Quibdo              Apartaestudio  6      2020-06-15  2021-04-04
+Quibdo              Apartamento    6      2019-09-09  2021-04-04
+Quibdo              Casa           6      2019-09-09  2021-04-04
+Salento             Apartaestudio  4      2019-09-09  2020-12-07
+Salento             Apartamento    5      2019-09-09  2021-04-04
+Salento             Casa           4      2019-09-09  2021-04-04
+Santa Marta         Apartaestudio  3      2020-06-15  2021-04-04
+Santa Marta         Apartamento    1      2020-06-15  2020-06-15
+Santa Marta         Casa           6      2019-09-09  2021-04-04
+Sta. Rosa de Cabal  Apartaestudio  6      2019-09-09  2021-04-04
+Sta. Rosa de Cabal  Apartamento    7      2019-09-09  2020-12-07
+Sta. Rosa de Cabal  Casa           5      2019-09-09  2021-04-04
+
+**************************************************************
+Consulta 4:
+
+SELECT P.ID_PROYECTO, SUM(C.CANTIDAD * MC.PRECIO_UNIDAD) AS VALOR
+FROM PROYECTO P 
+JOIN COMPRA C ON (P.ID_PROYECTO = C.ID_PROYECTO)
+JOIN MATERIALCONSTRUCCION MC ON (C.ID_MATERIALCONSTRUCCION = MC.ID_MATERIALCONSTRUCCION)
+WHERE C.PAGADO = 'No'
+GROUP BY P.ID_PROYECTO
+HAVING SUM(C.CANTIDAD * MC.PRECIO_UNIDAD) > 50000
+ORDER BY VALOR DESC;
+
+Resultado4:
+
+ID_Proyecto  VALOR
+-----------  ------
+293          151973
+386          117302
+283          112077
+387          100400
+179          96158
+85           94629
+280          93170
+351          87441
+284          79774
+117          76880
+295          73657
+331          72921
+224          66640
+202          66304
+336          65563
+350          65103
+87           64015
+296          63649
+16           63432
+393          61388
+93           60382
+134          60058
+48           58830
+341          58258
+187          57880
+5            57856
+133          57426
+154          56576
+52           56446
+315          56294
+118          55630
+146          55568
+116          55556
+46           55274
+61           55234
+22           54615
+158          54565
+343          54562
+358          54259
+12           54206
+288          53997
+171          52739
+301          51461
+390          51454
+338          51392
+167          51068
+53           50716
+148          50575
+356          50402
+
+**************************************************************
+
+Consulta 5:
+
+SELECT L.NOMBRE ||' '||L.PRIMER_APELLIDO ||' '||L.SEGUNDO_APELLIDO AS LIDER, SUM(C.CANTIDAD * MC.PRECIO_UNIDAD) AS VALOR
+FROM LIDER L 
+JOIN PROYECTO P ON (P.ID_LIDER = L.ID_LIDER)
+JOIN COMPRA C ON (P.ID_PROYECTO = C.ID_PROYECTO)
+JOIN MATERIALCONSTRUCCION MC ON (C.ID_MATERIALCONSTRUCCION = MC.ID_MATERIALCONSTRUCCION)
+GROUP BY L.NOMBRE ||' '||L.PRIMER_APELLIDO ||' '||L.SEGUNDO_APELLIDO
+ORDER BY VALOR DESC
+LIMIT 10;
+
+Resultado5:
+
+LIDER                      VALOR
+-------------------------  ------
+Maradona Jimenez Godoy     963439
+Beatriz Jimenez Ardila     963291
+Carla Barrera Cuadrado     935764
+Nadia Pelaez Galvis        828636
+Libia Pelaez Rojas         814943
+Libia Pelaez Hernandez     795783
+Juana Perez Galvis         769053
+Homero Caceres Rojas       730407
+Maradona Arteaga Figueroa  699268
+Paul Jimenez Parra         690199
+
+**************************************************************
